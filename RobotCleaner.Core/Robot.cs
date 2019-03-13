@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace RobotCleaner.Core
 {
@@ -19,31 +20,30 @@ namespace RobotCleaner.Core
             var currentPoint = startingPoint;
             while (commands.TryDequeue(out command))
             {
-                currentPoint = Move(command, currentPoint);
-                cleanedPoints.Add(currentPoint);
+                for (var i = 0; i < command.Step; i++)
+                {
+                    switch (command.Direction)
+                    {
+                        case Direction.E:
+                            currentPoint.X--;
+                            break;
+                        case Direction.W:
+                            currentPoint.X++;
+                            break;
+                        case Direction.N:
+                            currentPoint.Y++;
+                            break;
+                        case Direction.S:
+                            currentPoint.Y--;
+                            break;
+                    }
+                    currentPoint = new Point(currentPoint.X, currentPoint.Y);
+                    cleanedPoints.Add(currentPoint);
+                }
             }
             return cleanedPoints.Count;
         }
 
-        private Point Move(CommandRequest command, Point currentPoint)
-        {
-            switch (command.Direction)
-            {
-                case Direction.E:
-                    currentPoint.X--;
-                    break;
-                case Direction.W:
-                    currentPoint.X++;
-                    break;
-                case Direction.N:
-                    currentPoint.Y++;
-                    break;
-                case Direction.S:
-                    currentPoint.Y--;
-                    break;
-            }
 
-            return new Point(currentPoint.X, currentPoint.Y);
-        }
     }
 }
