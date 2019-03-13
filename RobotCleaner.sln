@@ -3,9 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotCleaner.Tests", "RobotCleaner.Tests\RobotCleaner.Tests.csproj", "{B4EB87DE-EA76-40A6-A890-AFF0F861B4AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotCleaner.Core", "RobotCleaner.Core\RobotCleaner.Core.csproj", "{D489D955-7282-49C4-94F7-F20B36351005}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{9813BAF0-F21A-4FF3-B76A-2FCF4791E6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotCleaner.Console", "Clients\RobotCleaner.Console\RobotCleaner.Console.csproj", "{D615183A-2133-481A-BE19-9A165D61BEBC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4EB87DE-EA76-40A6-A890-AFF0F861B4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EB87DE-EA76-40A6-A890-AFF0F861B4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EB87DE-EA76-40A6-A890-AFF0F861B4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EB87DE-EA76-40A6-A890-AFF0F861B4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D489D955-7282-49C4-94F7-F20B36351005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D489D955-7282-49C4-94F7-F20B36351005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D489D955-7282-49C4-94F7-F20B36351005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D489D955-7282-49C4-94F7-F20B36351005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D615183A-2133-481A-BE19-9A165D61BEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D615183A-2133-481A-BE19-9A165D61BEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D615183A-2133-481A-BE19-9A165D61BEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D615183A-2133-481A-BE19-9A165D61BEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D615183A-2133-481A-BE19-9A165D61BEBC} = {9813BAF0-F21A-4FF3-B76A-2FCF4791E6A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F374B9AB-833C-4CDE-AD7D-417AADFF93AF}
