@@ -55,6 +55,19 @@ namespace RobotCleaner.Tests
             roomsCleaned.ShouldBe(3);
         }
 
+        [Fact]
+        public void When_moving_2_E_and_1_N_then_4_rooms_should_be_cleaned()
+        {
+            var robot = new Robot();
+            var commands = new Queue<CommandRequest>();
+            commands.Enqueue(new CommandRequest(Direction.E, 2));
+            commands.Enqueue(new CommandRequest(Direction.N, 1));
+            var startingPoint = new Point(10, 22);
+
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            roomsCleaned.ShouldBe(3);
+        }
+
         public static TheoryData<CommandRequest> MovingOneStepAnyDirectionData =>
             new TheoryData<CommandRequest>
             {
