@@ -30,7 +30,6 @@ namespace RobotCleaner.ConsoleApp
 
             var cleanedCount = new Robot().CleanRooms(starPoint, commands);
             Console.Write($"=> Cleaned: {cleanedCount}");
-            Console.Read();
         }
     }
 }
