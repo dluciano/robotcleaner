@@ -13,7 +13,7 @@ namespace RobotCleaner.Tests
         {
             var robot = new Robot();
             var startingPoint = new Point(0, 0);
-            var roomsCleaned = robot.CleanRooms(startingPoint);
+            var roomsCleaned = robot.CleanRooms(startingPoint).Count;
             roomsCleaned.ShouldBe(1);
         }
 
@@ -25,7 +25,7 @@ namespace RobotCleaner.Tests
             var commands = new Queue<CommandRequest>();
             commands.Enqueue(command);
             var startingPoint = new Point(0, 0);
-            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands).Count;
             roomsCleaned.ShouldBe(2);
         }
 
@@ -38,7 +38,7 @@ namespace RobotCleaner.Tests
             commands.Enqueue(new CommandRequest(Direction.E, 1));
             var startingPoint = new Point(0, 0);
 
-            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands).Count;
             roomsCleaned.ShouldBe(3);
         }
 
@@ -51,7 +51,7 @@ namespace RobotCleaner.Tests
             commands.Enqueue(new CommandRequest(Direction.S, 1));
             var startingPoint = new Point(0, 0);
 
-            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands).Count;
             roomsCleaned.ShouldBe(3);
         }
 
@@ -65,7 +65,7 @@ namespace RobotCleaner.Tests
             commands.Enqueue(new CommandRequest(Direction.E, 1));
             var startingPoint = new Point(0, 0);
 
-            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands).Count;
             roomsCleaned.ShouldBe(4);
         }
 
@@ -78,7 +78,7 @@ namespace RobotCleaner.Tests
             commands.Enqueue(new CommandRequest(Direction.N, 1));
             var startingPoint = new Point(10, 22);
 
-            var roomsCleaned = robot.CleanRooms(startingPoint, commands);
+            var roomsCleaned = robot.CleanRooms(startingPoint, commands).Count;
             roomsCleaned.ShouldBe(4);
         }
 

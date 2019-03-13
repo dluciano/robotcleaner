@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace RobotCleaner.Core
 {
     public class Robot
     {
-        public int CleanRooms(Point startingPoint) =>
-            CleanRooms(startingPoint, new Queue<CommandRequest>());
+        public HashSet<Point> CleanRooms(Point startingRoomPoint) =>
+            CleanRooms(startingRoomPoint, new Queue<CommandRequest>());
 
-        public int CleanRooms(Point startingPoint, Queue<CommandRequest> commands)
+        public HashSet<Point> CleanRooms(Point startingRoomPoint, Queue<CommandRequest> commands)
         {
-            var cleanedPoints = new HashSet<Point>
+            var cleanedRooms = new HashSet<Point>
             {
-                startingPoint
+                startingRoomPoint
             };
             CommandRequest command;
-            var currentPoint = startingPoint;
+            var currentRoomPoint = startingRoomPoint;
             while (commands.TryDequeue(out command))
             {
                 for (var i = 0; i < command.Step; i++)
@@ -25,23 +24,23 @@ namespace RobotCleaner.Core
                     switch (command.Direction)
                     {
                         case Direction.E:
-                            currentPoint.X--;
+                            currentRoomPoint.X--;
                             break;
                         case Direction.W:
-                            currentPoint.X++;
+                            currentRoomPoint.X++;
                             break;
                         case Direction.N:
-                            currentPoint.Y++;
+                            currentRoomPoint.Y++;
                             break;
                         case Direction.S:
-                            currentPoint.Y--;
+                            currentRoomPoint.Y--;
                             break;
                     }
-                    currentPoint = new Point(currentPoint.X, currentPoint.Y);
-                    cleanedPoints.Add(currentPoint);
+                    currentRoomPoint = new Point(currentRoomPoint.X, currentRoomPoint.Y);
+                    cleanedRooms.Add(currentRoomPoint);
                 }
             }
-            return cleanedPoints.Count;
+            return cleanedRooms;
         }
 
 

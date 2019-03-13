@@ -28,8 +28,9 @@ namespace RobotCleaner.ConsoleApp
                 commands.Enqueue(command);
             }
 
-            var cleanedCount = new Robot().CleanRooms(starPoint, commands);
+            var cleanedCount = new Robot().CleanRooms(starPoint, commands).Count;
             Console.Write($"=> Cleaned: {cleanedCount}");
+            Console.ReadLine();
         }
     }
 }
